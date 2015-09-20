@@ -1,0 +1,15 @@
+{% extends 'team/base.html' %}
+
+{% load staticfiles %}
+
+
+{% block title %}Find The Mentor{% endblock %}
+ {% block body_block %}
+	{% if schedule %}
+		{% for i in schedule %}
+	<h2>Web Developer Skill</h2>
+	<h2>{{materi.mentor}}</h2>
+	<h2>{{materi.time}}</h2>
+	<h2>{{materi.date}}</h2>
+{% endblock %}
+

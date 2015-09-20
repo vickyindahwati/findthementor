@@ -1,0 +1,33 @@
+{% extends 'team/base.html' %}
+
+{% load staticfiles %}
+
+
+{% block title %}Find The Mentor{% endblock %}
+ {% block body_block %}
+	{% if user.is_authenticated %}
+	<h1>Hello {{ user.username }}.. Welcome to Find The Mentor!</h1>
+	<h2 style="text-align:center">Web Developer Skills</h2>
+	<p style="text-align:center">Learn to build professional websites and applications as used by real businesses.</p>
+        {% if backend %}
+	<h1>BackEnd</h1>
+            <ul>
+                {% for materi in backend %}
+                <li><a href="/team/{{materi.name}}">{{ materi.name }}</a></li>
+                {% endfor %}
+            </ul>
+	{% endif %}
+	{% if frontend %}
+	<h1>FrontEnd</h1>
+	<ul>
+	    {% for materi in frontend %}
+                <li><a href="/team/{{materi.category}}/{{materi.name}}">{{ materi.name }}</a></li>
+                {% endfor %}
+            </ul>
+	{% endif %}
+            
+	{% else %}
+	<h1>Let's join with Find The Mentor!</h1>
+	{% endif %}
+
+{% endblock %}

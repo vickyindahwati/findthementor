@@ -1,0 +1,21 @@
+{% extends 'team/base.html' %}
+
+{% load staticfiles %}
+
+
+{% block title %}Find The Mentor{% endblock %}
+ {% block body_block %}
+        <h2>Hello.. You can find your mentor.</h2>
+
+	<form id="login_form" method="post" action="/team/login/">
+            {% csrf_token %}
+            Username: <input type="text" name="username" value="" size="50" />
+            <br />
+            Password: <input type="password" name="password" value="" size="50" />
+            <br />
+
+            <input type="submit" value="submit" />
+        </form>
+
+        
+ {% endblock %}

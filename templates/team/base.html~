@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>{% block title %}Find The Mentor{% endblock %}</title>
+    </head>
+
+    <body>
+	<div class="header">
+	<h2>Find The Mentor</h2>
+	</div>
+        <div>
+            {% block body_block %}{% endblock %}
+        </div>
+
+        
+    </body>
+</html>
