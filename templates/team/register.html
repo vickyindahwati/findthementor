@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Find The Mentor</title>
-    </head>
+{% extends 'team/base.html' %}
 
-    <body>
-        <h1>Register with Your ID</h1>
+{% load staticfiles %}
 
+
+{% block title %} Find The Mentor | Register{% endblock %}
+ {% block body_block %}
+
+  <div class="text-center">
+        <div class="logo">Create your own ID</div>
         {% if registered %}
         Rango says: <strong>thank you for registering!</strong>
         <a href="/team/">Return to the homepage.</a><br />
@@ -28,5 +29,4 @@
             <input type="submit" name="submit" value="Register" />
         </form>
         {% endif %}
-    </body>
-</html>
+{% endblock %}

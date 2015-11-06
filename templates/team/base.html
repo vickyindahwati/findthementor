@@ -1,28 +1,65 @@
+{% load staticfiles %}
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
+<head>
+    <title>Find The Mentor | Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <head>
-        <title>{% block title %}Find The Mentor{% endblock %}</title>
-    </head>
+    <!--CSS-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/custom.css'%}">
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+    <!--Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+</head>
+
 
     <body>
-	<h2>Find The Mentor</h2>
-	</div>
-	{% if user.is_authenticated %}
-	<ul>
-	<li><a href="/team/logout/">Logout</a></li>
-	</ul>
-	{% else %}
-	<ul>
-	<li><a href="/team/login/">Login</a></li>
-	<li><a href="/team/register/">Register</a></li>
-	</ul>
-	{% endif %}
-        <div>
+	<nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/team/"><span class="glyphicon glyphicon-search"></span> Find The Mentor</a>
+            </div>
+	    {% if user.is_authenticated %}
+		<div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+			 <li><a href="/team/logout/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                </ul>
+            </div>
+	    {% else %}
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/team/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="/team/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </nav>
             {% block body_block %}{% endblock %}
         </div>
+<footer class="footer">
+        <ul class="list-inline">
+            <li><a href="#"><i class="fa fa-github fa-3x"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin fa-3x"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter fa-3x"></i></a></li>
+        </ul>
+        <p>© Find The Mentor</p>
+    </footer>
 
-        
+ <!--Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/login.js'%}"></script>
     </body>
 </html>

@@ -3,14 +3,70 @@
 {% load staticfiles %}
 
 
-{% block title %}Find The Mentor{% endblock %}
+{% block title %}Find The Mentor|Mentor{% endblock %}
  {% block body_block %}
+	<div class="container">
+        <div class="row">
+            <h3>Available mentor</h3>
+	    	<h2>Web Developer Skill</h2>
+        </div>
 	{% if schedule %}
 		{% for materi in schedule %}
-	<h2>Web Developer Skill</h2>
-	<h2>{{materi.mentor}}</h2>
-	<h2>{{materi.time}}</h2>
-	<h2>{{materi.date}}</h2>
+
+	<div class="row">
+            <div class="col-sm-3">
+                <div class="card">
+                    <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                    <div class="avatar">
+                        <img src="img/Alpha.jpg" alt="Alvian" />
+                    </div>
+                    <div class="content">
+                        <p>{{materi.mentor}}
+                            <br>Available Time : {{materi.time}}
+			    <br>Available Date : {{materi.date}}</p>
+                        <p>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalAl">View More</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+	
+	{% endfor %}
+	{% endif %}
+<!--modal Mentor-->
+	{% if schedule %}
+		{% for materi in schedule %}
+    <div class="modal fade" id="modalAl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="myModalLabel">More About Mentor</h4>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <img src="img/Alpha.jpg" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                        <h2 class="media-heading">{{materi.mentor}} <small>Jakarta</small></h2>
+                        <span><strong>Skills: </strong></span>
+                        <span class="label label-warning">Python</span>
+                        <span class="label label-danger">Django</span>
+                    </center>
+                    <hr>
+                    <center>
+                        <p class="text-left"><strong>Bio: </strong>
+                            <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem dui, tempor sit amet commodo a, vulputate vel tellus.</p>
+                        <br>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <center>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">I've heard enough about this mentor</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 	{% endfor %}
 	{% endif %}
 {% endblock %}
